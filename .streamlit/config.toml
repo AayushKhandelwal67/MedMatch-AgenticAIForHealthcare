@@ -1,0 +1,13 @@
+[server]
+fileWatcherType = "none"
+
+[theme]
+base="light"
+primaryColor="#9370DB"        # Keeps interactive elements Medium Purple
+backgroundColor="#F0F2F6"      # CHANGE THIS: Light Gray (standard UI light gray)
+secondaryBackgroundColor="#FFFFFF" # Sets sidebar/expanders to white for contrast
+textColor="#31333F"          # Keep text dark for readability
+# font="sans serif"
+
+# You can optionally specify fonts
+font="sans serif"

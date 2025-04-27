@@ -1,0 +1,37 @@
+# Environment folders
+medmatchvenv/
+venv/
+env/
+.venv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# IDE files
+.idea/
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Sensitive files
+.env
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Temporary/Backup files
+*.log
+*.tmp
+*.bak
+
+# --- IMPORTANT: Large File Handling ---
+# If your vectorstore/db_faiss/index.faiss OR icd_embeddings.pkl
+# files are > 100MB AND you are NOT using Git LFS (see Step 5),
+# UNCOMMENT the lines below by removing the '#':
+# vectorstore/db_faiss/index.faiss
+# icd_embeddings.pkl
+# data/TheGaleEncyclopediaofMedicine.pdf # Add if your large PDF is >100MB
