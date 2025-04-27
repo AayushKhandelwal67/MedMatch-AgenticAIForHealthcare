@@ -35,6 +35,6 @@ Thumbs.db
 # vectorstore/db_faiss/index.faiss
 # icd_embeddings.pkl
 # data/TheGaleEncyclopediaofMedicine.pdf # Add if your large PDF is >100MB
-vectorstore/db_faiss/index.faiss
-vectorstore/db_faiss/index.pkl # Also ignore the pkl file associated with FAISS
-icd_embeddings.pkl
+# vectorstore/db_faiss/index.faiss
+# vectorstore/db_faiss/index.pkl # Also ignore the pkl file associated with FAISS
+# icd_embeddings.pkl
