@@ -1,4 +1,4 @@
-# MedMatch(Agentic AI Healthcare Assistant) - Assessment Project
+# MedMatch(Agentic AI Healthcare Assistant) - Project
 
 ## Overview
 
