@@ -45,8 +45,21 @@ def load_embedding_model():
 def load_llm():
     """Loads the Google Gemini LLM using Streamlit's cache."""
     print(f"Attempting to load LLM: {LLM_MODEL_NAME}...")
-    load_dotenv() # Load GOOGLE_API_KEY from .env file in the root directory
-    api_key = os.getenv("GOOGLE_API_KEY")
+    # load_dotenv() # Load GOOGLE_API_KEY from .env file in the root directory
+    # api_key = os.getenv("GOOGLE_API_KEY")
+    api_key = None
+    if hasattr(st, 'secrets') and "GOOGLE_API_KEY" in st.secrets:
+        api_key = st.secrets["GOOGLE_API_KEY"]
+        print("Loaded GOOGLE_API_KEY from Streamlit secrets.")
+    else:
+        # Fallback for local testing if needed, but primarily rely on secrets for deployment
+        # You could check os.getenv here as a fallback if desired for local runs without cloud secrets
+        print("Warning: GOOGLE_API_KEY not found in Streamlit secrets. App might fail if not run locally with .env")
+        # api_key = os.getenv("GOOGLE_API_KEY") # Optional: fallback for local
+        if not api_key: # Strict check: only use secrets in cloud
+             st.error("Fatal Error: GOOGLE_API_KEY not found in Streamlit secrets. Please add it in the app settings.")
+             print("Fatal Error: GOOGLE_API_KEY missing from st.secrets.")
+             return None
     if not api_key:
         print("FATAL ERROR: GOOGLE_API_KEY environment variable not found.")
         st.error("Fatal Error: GOOGLE_API_KEY not found. Please ensure it's set in a .env file in the project root.")
