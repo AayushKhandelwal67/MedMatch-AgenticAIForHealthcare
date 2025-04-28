@@ -133,11 +133,11 @@ Monitor the console output for detailed agent execution logs. Check the UI for r
 *   **Req 1 (Ingestion/Storage):** Ingests PDFs/CSVs, stores embeddings/cache locally (FAISS/Pickle), uses Git LFS for large file distribution.
 *   **Req 2 (LLM Pipeline):** Implements complex (>2 steps) LLM flow using LangGraph, incorporating **Routing, Tool Use, and Evaluator-Optimizer** patterns.
 *   **Req 3 (Frontend):** Uses Streamlit for a simple, interactive chat interface displaying inputs and processed outputs.
-*   **Optional Focus (#4):** Directly addressed via the complex LangGraph implementation with multiple LLM calls, routing, and evaluation loops.
+*   **Req 4:** Directly addressed via the complex LangGraph implementation with multiple LLM calls, routing, and evaluation loops.
 
 ## Testing Approach
 
-Manual testing was performed covering the different agent pathways (intent routing, RAG success/fallback, triage success/relevance failure, multimodal input, evaluator loop triggering) by observing UI outputs and detailed console logs tracking node execution and state changes. (Per assessment Tip #6/7).
+Manual testing was performed covering the different agent pathways (intent routing, RAG success/fallback, triage success/relevance failure, multimodal input, evaluator loop triggering) by observing UI outputs and detailed console logs tracking node execution and state changes.
 
 **(Stretch Goal):** Future work would involve automated tests (`pytest`) and potentially LLM-as-judge evaluations.
 
@@ -147,11 +147,11 @@ Manual testing was performed covering the different agent pathways (intent routi
 
 1.  **Framework Choice (LangGraph):** Chosen over simpler LangChain chains to robustly handle the required conditional logic (intent routing, relevance/sufficiency checks, evaluator loops) and manage state effectively in a multi-step agentic process. 
 2.  **LLM Choice (Google Gemini 2.0 Flash):** Selected based on the assessment recommendation for a free, capable model with multimodal support, accessed via `langchain-google-genai`. 
-3.  **Agentic Patterns Implementation:** Directly implemented **Workflow Routing**, **Tool Use**, and **Evaluator-Optimizer** to meet assessment requirements and demonstrate understanding of the Anthropic guide concepts.
+3.  **Agentic Patterns Implementation:** Directly implemented **Workflow Routing**, **Tool Use**, and **Evaluator-Optimizer** to meet assessment requirements.
 4.  **Dynamic Conversation Flow:** Replaced hardcoded turn limits with an **LLM-based Sufficiency Check** for more natural symptom gathering.
 5.  **Intelligent Search Fallback:** Added an **LLM-based RAG Relevance Evaluation** to make the decision between using internal RAG context or external web search more robust for information requests.
 6.  **Multimodal Input:** Incorporated image uploads to leverage Gemini's capabilities and handle visual symptoms, enhancing scope and technical demonstration.
-7.  **Data Sources:** Used a combination of provided PDFs, a large external PDF (Gale Encyclopedia), and synthetic structured data (CSVs) to create a diverse knowledge base.
+7.  **Data Sources:** Used a combination of provided PDFs, a large external PDF of 4000+ pages (Gale Encyclopedia), and synthetic structured data (CSVs) to create a diverse knowledge base.
 8.  **Storage & Distribution (Local + Git LFS):** Used local FAISS/Pickle for storage (meeting core requirement) and **Git LFS** to manage/distribute large cache/data files, balancing ease of setup for end-users with repository size constraints.
 9.  **Frontend (Streamlit):** Utilized for rapid UI development, meeting the "simple frontend" requirement.
 
