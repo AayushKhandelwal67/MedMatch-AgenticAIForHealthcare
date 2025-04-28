@@ -37,7 +37,7 @@ The application uses a layered architecture:
 4.  **Model Layer (`utils.py`):** Google Gemini 1.5 Flash LLM, Sentence Transformer Embedding Model.
 5.  **Data Layer (`utils.py`, `data/`, `vectorstore/`, CSVs, `.pkl`):** PDFs, FAISS index, CSVs, ICD embeddings cache.
 
-*(See Architecture Diagram section below)*
+
 
 ## Agentic Workflow Details
 
