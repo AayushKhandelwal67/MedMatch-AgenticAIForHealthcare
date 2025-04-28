@@ -4,11 +4,11 @@
 
 This project implements an advanced AI Healthcare Assistant based on the "Creative Document Processor" assessment requirements. It leverages a multi-step, agentic workflow orchestrated using **LangGraph** to process user queries—including text and optional image uploads—related to medical symptoms and general health information.
 
-The system ingests a knowledge base of medical documents (PDFs, including the Gale Encyclopedia of Medicine) and structured data (CSVs for doctor profiles, patient cases, ICD-10 codes). It utilizes **Google Gemini 2.0 Flash** via the `langchain-google-genai` package for its core language understanding and generation, including multimodal capabilities (as recommended in assessment Tip #1). External information is accessed via the **Google Custom Search API**.
+The system ingests a knowledge base of medical documents (PDFs, including the Gale Encyclopedia of Medicine) and structured data (CSVs for doctor profiles, patient cases, ICD-10 codes). It utilizes **Google Gemini 2.0 Flash** via the `langchain-google-genai` package for its core language understanding and generation, including multimodal capabilities. External information is accessed via the **Google Custom Search API**.
 
 The primary "creative output" includes context-aware specialist recommendations with refined, jargon-free explanations, answers to general medical questions derived from RAG or web search, and potentially relevant doctor profiles. The user interacts via a **Streamlit** web interface (fulfilling the basic frontend requirement).
 
-This implementation focuses on **Optional Area #4: Complex Agentic Workflow**, incorporating patterns like Workflow Routing, Tool Use, and Evaluator-Optimizer as described in Anthropic's "Building Effective Agents" guide. It reuses significant elements from a prior MedMatch project (per assessment Tip #3).
+This implementation focuses on **Complex Agentic Workflow**, incorporating patterns like Workflow Routing, Tool Use, and Evaluator-Optimizer as described in Anthropic's "Building Effective Agents" guide. It reuses significant elements from a prior MedMatch project.
 
 ## Features
 
