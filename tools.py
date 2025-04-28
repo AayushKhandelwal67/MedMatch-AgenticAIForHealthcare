@@ -34,9 +34,26 @@ except Exception as e_load:
     embedding_model_t, vector_store_t, icd_codes_t, icd_embeddings_t = None, None, [], None
 
 # --- Load Google CSE Credentials ---
-load_dotenv() # Ensure .env is loaded
-GOOGLE_API_KEY_CSE = os.getenv("GOOGLE_API_KEY") # Key enabled for Custom Search API
-GOOGLE_CSE_ID = os.getenv("GOOGLE_CSE_ID")
+# load_dotenv() # Ensure .env is loaded
+# GOOGLE_API_KEY_CSE = os.getenv("GOOGLE_API_KEY") # Key enabled for Custom Search API
+# GOOGLE_CSE_ID = os.getenv("GOOGLE_CSE_ID")
+GOOGLE_API_KEY_CSE = None
+GOOGLE_CSE_ID = None
+if hasattr(st, 'secrets'):
+    if "GOOGLE_API_KEY" in st.secrets:
+         GOOGLE_API_KEY_CSE = st.secrets["GOOGLE_API_KEY"]
+         print("tools.py: Loaded GOOGLE_API_KEY from st.secrets.")
+    else:
+         print("tools.py: Warning - GOOGLE_API_KEY not found in st.secrets.")
+
+    if "GOOGLE_CSE_ID" in st.secrets:
+         GOOGLE_CSE_ID = st.secrets["GOOGLE_CSE_ID"]
+         print("tools.py: Loaded GOOGLE_CSE_ID from st.secrets.")
+    else:
+         print("tools.py: Warning - GOOGLE_CSE_ID not found in st.secrets.")
+else:
+     print("tools.py: Warning - st.secrets not available (running locally without Streamlit context?)")
+
 
 # --- Tool Definitions ---
 
